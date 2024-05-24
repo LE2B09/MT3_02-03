@@ -179,7 +179,7 @@ bool IsCollisionSegmentPlane(const Segment& segment, const Plane& plane)
 	}
 
 	//tを求める
-	float t = (plane.distance - Dot(segment.origin, plane.normal)) / dot;
+	float t = (plane.distance - Dot(segment.origin, plane.normal)) / dot; 
 
 	//tの値と線の種類によって衝突しているかを判断する
 	return t >= 0.0f && t <= 1.0f;
