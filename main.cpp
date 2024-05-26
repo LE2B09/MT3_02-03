@@ -173,7 +173,9 @@ bool IsCollisionSegmentPlane(const Segment& segment, const Plane& plane)
 	float dot = Dot(plane.normal, segment.diff);
 
 	//垂直 = 平行であるので、衝突しているはずがない
-	if (dot == 0.0f)
+	// 浮動小数点数の比較は通常、直接の等号判定は避ける
+	const float epsilon = 1e-6f;
+	if (fabs(dot) < epsilon)
 	{
 		return false;
 	}
